@@ -72,5 +72,7 @@ public class Restaurant {
     }
 
 
-
+    public int totalCost(List<Item> menu) {
+        return 0;
+    }
 }

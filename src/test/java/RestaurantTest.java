@@ -76,6 +76,16 @@ class RestaurantTest {
         assertThrows(itemNotFoundException.class,
                 ()->restaurant.removeFromMenu("French fries"));
     }
+    @Test
+    public void calculate_total_of_items() {
+        LocalTime openingTime = LocalTime.parse("10:30:00");
+        LocalTime closingTime = LocalTime.parse("22:00:00");
+        restaurant = new Restaurant("Theos", "Noida", openingTime, closingTime);
+        restaurant.addToMenu("Coffee", 149);
+        restaurant.addToMenu("Tea", 99);
+        int calculateTotal = restaurant.totalCost(restaurant.getMenu());
+        assertEquals(calculateTotal, 248);
+    }
 
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
